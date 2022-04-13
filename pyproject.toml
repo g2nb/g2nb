@@ -1,0 +1,24 @@
+#[project]
+#name = "g2nb"
+#dependencies = [
+#    "nbtools==22.3.0b2",
+#    "genepattern-notebook==22.3.0b2",
+#    "igv-jupyter",
+#    "py4cytoscape",
+#    "ndex2",
+#    "firecloud"
+#]
+
+[build-system]
+requires = ["jupyter_packaging>=0.12.0", "jupyterlab~=3.1", "setuptools>=61.2.0", "wheel"]
+build-backend = "jupyter_packaging.build_api"
+
+[tool.jupyter-packaging.builder]
+factory = "jupyter_packaging.npm_builder"
+
+[tool.jupyter-packaging.build-args]
+build_cmd = "install:all"
+npm = ["jlpm"]
+
+[tool.check-manifest]
+ignore = ["yarn.lock", ".*", "package-lock.json"]

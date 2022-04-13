@@ -1,0 +1,50 @@
+{
+  "name": "@g2nb/g2nb",
+  "version": "22.3.0-beta.2",
+  "description": "Meta-package for installing all the g2nb tools",
+  "keywords": [
+    "jupyter",
+    "jupyterlab",
+    "jupyterlab-extension",
+    "widgets"
+  ],
+  "homepage": "https://github.com/g2nb/g2nb",
+  "bugs": {
+    "url": "https://github.com/g2nb/g2nb/issues"
+  },
+  "license": "BSD-3-Clause",
+  "author": {
+    "name": "Thorin Tabor",
+    "email": "tmtabor@cloud.ucsd.edu"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/g2nb/g2nb"
+  },
+  "scripts": {
+    "install:all": "jlpm run install:wysiwyg && jlpm run install:theme",
+    "install:wysiwyg": "jupyter labextension install @g2nb/jupyter-wysiwyg",
+    "install:theme": "jupyter labextension install @g2nb/jupyterlab-theme"
+  },
+  "dependencies": {
+    "@jupyterlab/application": "^3.0.4"
+  },
+  "jupyterlab": {
+    "discovery": {
+      "kernel": [
+        {
+          "kernel_spec": {
+            "language": "^python"
+          },
+          "base": {
+            "name": "g2nb"
+          },
+          "managers": [
+            "pip",
+            "conda"
+          ]
+        }
+      ]
+    }
+  }
+}
